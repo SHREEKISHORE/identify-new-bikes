@@ -8,13 +8,35 @@
     <parameter name="os" value="Windows"/>
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="TestCase.TestCase4_GoogleSignup">
+      <class name="TestCase.TC001_UpBikeDetails">
         <methods>
-          <include name="verifyLoginPage"/>
           <include name="invokeBrowser"/>
+          <include name="clickNewBikes"/>
+          <include name="clickUpcomingBikes"/>
           <include name="tearDown"/>
         </methods>
-      </class> <!-- TestCase.TestCase4_GoogleSignup -->
+      </class> <!-- TestCase.TC001_UpBikeDetails -->
     </classes>
   </test> <!-- ChromeTest(failed) -->
+  <test thread-count="5" name="EdgeTest(failed)">
+    <parameter name="os" value="Edge"/>
+    <parameter name="browser" value="edge"/>
+    <classes>
+      <class name="TestCase.TC004_GoogleSignup">
+        <methods>
+          <include name="invokeBrowser"/>
+          <include name="verifyLoginPage"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestCase.TC004_GoogleSignup -->
+      <class name="TestCase.TC001_UpBikeDetails">
+        <methods>
+          <include name="clickNewBikes"/>
+          <include name="invokeBrowser"/>
+          <include name="clickUpcomingBikes"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- TestCase.TC001_UpBikeDetails -->
+    </classes>
+  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

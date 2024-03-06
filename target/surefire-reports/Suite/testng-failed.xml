@@ -4,9 +4,9 @@
   <listeners>
     <listener class-name="Utils.ExtentReportManager"/>
   </listeners>
-  <test thread-count="5" name="ChromeTest(failed)" verbose="0">
-    <parameter name="os" value="Windows"/>
-    <parameter name="browser" value="chrome"/>
+  <test thread-count="5" name="EdgeTest(failed)" verbose="0">
+    <parameter name="os" value="Edge"/>
+    <parameter name="browser" value="edge"/>
     <classes>
       <class name="TestCase.TestCase4_GoogleSignup">
         <methods>
@@ -16,5 +16,5 @@
         </methods>
       </class> <!-- TestCase.TestCase4_GoogleSignup -->
     </classes>
-  </test> <!-- ChromeTest(failed) -->
+  </test> <!-- EdgeTest(failed) -->
 </suite> <!-- Failed suite [Suite] -->

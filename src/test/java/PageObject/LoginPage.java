@@ -45,6 +45,7 @@ public class LoginPage extends BasePage {
 		String errorMsg = errorMessage.getText();
 		System.out.println("***********************");
 		System.out.println(errorMsg);
+		System.out.println("***********************");
 		excelUtility.setCellData("LoginPage", 0, 0, errorMsg);
 	}
 

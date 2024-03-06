@@ -74,6 +74,7 @@ public class UsedCars extends BasePage {
 			try {
 				System.out.println(model.getText());
 				excelUtility.setCellData("PopularModels", row, 0, model.getText());
+				row++;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

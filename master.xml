@@ -9,10 +9,10 @@
 		<parameter name="os" value="Windows" />
 		<parameter name="browser" value="chrome" />
 		<classes>
-			<class name="TestCase.TestCase1_UpcomingBikeDetails" />
-			<class name="TestCase.TestCase2_UsedCarsDetails" />
-			<class name="TestCase.TestCase3_GoogleLogin" />
-			<class name="TestCase.TestCase4_GoogleSignup" />
+			<class name="TestCase.TC001_UpBikeDetails" />
+			<class name="TestCase.TC002_UsedCarsDetails" />
+			<class name="TestCase.TC003_GoogleLogin" />
+			<class name="TestCase.TC004_GoogleSignup" />
 		</classes>
 	</test>
 	
@@ -20,10 +20,10 @@
 		<parameter name="os" value="Edge" />
 		<parameter name="browser" value="edge" />
 		<classes>
-			<class name="TestCase.TestCase1_UpcomingBikeDetails" />
-			<class name="TestCase.TestCase2_UsedCarsDetails" />
-			<class name="TestCase.TestCase3_GoogleLogin" />
-			<class name="TestCase.TestCase4_GoogleSignup" />
+			<class name="TestCase.TC001_UpBikeDetails"  />
+			<class name="TestCase.TC002_UsedCarsDetails" />
+			<class name="TestCase.TC003_GoogleLogin" />
+			<class name="TestCase.TC004_GoogleSignup" />
 		</classes>
 	</test> <!-- Test -->
 </suite> <!-- Suite -->

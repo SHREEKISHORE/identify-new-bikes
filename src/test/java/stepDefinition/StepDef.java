@@ -2,73 +2,63 @@ package stepDefinition;
 
 import java.io.IOException;
 
-import org.openqa.selenium.WebDriver;
-
-import PageObject.LoginPage;
-import PageObject.LoginSignupPage;
-import PageObject.UpcomingBikes;
-import PageObject.UsedCars;
-import PageObject.zigWheelsPage;
-import io.cucumber.java.en.*;
+import TestBase.BaseClass;
+import TestCase.TC001_UpBikeDetails;
+import TestCase.TC002_UsedCarsDetails;
+import TestCase.TC003_GoogleLogin;
+import TestCase.TC004_GoogleSignup;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class StepDef {
-	WebDriver driver;
-	UpcomingBikes up=new UpcomingBikes(driver);
-	UsedCars usc=new UsedCars(driver);
-	LoginSignupPage lp=new LoginSignupPage(driver);
-	LoginPage lop=new LoginPage(driver);
-	@When("Click on the New Bikes")
-	public void click_on_the_new_bikes() throws InterruptedException, IOException {
-		zigWheelsPage zg=new zigWheelsPage(driver);
-		zg.clickNewBikes();
-		zg.selectUpcomingBikes();
-		
+	BaseClass bs = new BaseClass();
+
+	@Given("load the browser and ZigsWheel Page")
+	public void load_the_browser_and_zigs_wheel_page() {
+		try {
+			bs.invokeBrowser("Windows", "chrome");
+		} catch (IOException e) {
+			
+			e.printStackTrace();
+		}
 	}
 
-	@When("Click on Upcoming Bikes")
-	public void click_on_upcoming_bikes() throws InterruptedException {
-		
-		up.clickViewMoreButton();
-		
+	@Then("Click on New Bikes and Upcoming bike select hond and get the details of Bikes")
+	public void click_on_new_bikes_and_upcoming_bike_select_hond_and_get_the_details_of_bikes() {
+		TC001_UpBikeDetails tc1 = new TC001_UpBikeDetails();
+		try {
+			tc1.clickNewBikes();
+		} catch (InterruptedException e) {
+			
+			e.printStackTrace();
+		}
+		tc1.clickUpcomingBikes();
 	}
 
-	@When("Click on Manufactorers")
-	public void click_on_manufactorers() throws IOException {
-		up.bikeDetails();
-	}
-	
-	@When("Select Used Cars")
-	public void select_used_cars() throws InterruptedException {
-	   usc.selectUsedCars();
+	@Then("Click on Used Cars and select models and Get the model details")
+	public void click_on_used_cars_and_select_models_and_get_the_model_details() {
+		TC002_UsedCarsDetails tc2 = new TC002_UsedCarsDetails();
+		try {
+			tc2.UsedCarDetails();
+		} catch (InterruptedException e) {
+
+		} catch (IOException e) {
+
+			e.printStackTrace();
+		}
 	}
 
-	@When("Select Used Cars Location")
-	public void select_used_cars_location() throws IOException, InterruptedException {
-	   usc.clickSelectedCar();
+	@Then("Login\\/signUp tp google and give invalid details and capture error message")
+	public void login_sign_up_tp_google_and_give_invalid_details_and_capture_error_message() {
+		TC003_GoogleLogin tc3 = new TC003_GoogleLogin();
+		TC004_GoogleSignup tc4 = new TC004_GoogleSignup();
+		tc3.verifyLoginPage();
+		tc4.verifyLoginPage();
 	}
 
-	@When("Select Popular models")
-	public void select_popular_models() throws IOException, InterruptedException {
-	    usc.extractPopularModels();
+	@Then("Close the Browser")
+	public void close_the_browser() {
+		bs.tearDown();
 	}
-
-	@When("Click on Login/SignUp")
-	public void click_on_login_sign_up() {
-	    lp.clickZigwheels();
-	    lp.clickLoginSignUp();
-	    lp.selectGoogleButton();
-	}
-	
-	@Given("the user is on the Google login page")
-	public void the_user_is_on_the_google_login_page() throws InterruptedException {
-		lop.setEmailInput();
-	    lop.clickNextBtn();
-	}
-
-	@When("the user enters invalid credentials")
-	public void the_user_enters_invalid_credentials() throws IOException {
-	    lop.handleErrorMsg();
-	}
-
 
 }
